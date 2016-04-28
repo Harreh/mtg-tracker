@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('life', 'LifeTrackerController@index');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

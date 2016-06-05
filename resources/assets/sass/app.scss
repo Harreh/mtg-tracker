@@ -1,10 +1,12 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "variables";
 
+@import "./vendor/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
+
+@import "./vendor/bower_components/font-awesome/scss/font-awesome.scss";
+
+@import "./vendor/bower_components/jquery-bracket/src/jquery.bracket.sass";
+
 body {
   font-family: 'Lato';
-}
-
-.fa-btn {
-  margin-right: 6px;
 }

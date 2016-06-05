@@ -3,6 +3,7 @@
   "dependencies": {
     "bootstrap-sass-official": "~3.3.6",
     "font-awesome": "~4.6.1",
-    "jquery": "^2.2.3"
+    "jquery": "^2.2.3",
+    "jquery-bracket" : "^0.7.3"
   }
 }

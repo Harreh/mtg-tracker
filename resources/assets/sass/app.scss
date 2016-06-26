@@ -7,6 +7,61 @@
 
 @import "./vendor/bower_components/jquery-bracket/src/jquery.bracket.sass";
 
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
 body {
   font-family: 'Lato';
+  background-color: #F5F5F5;
+}
+
+.content {
+  height: inherit;
+}
+
+.player-container {
+  float: left;
+  background-color: #D0D0D0;
+  border-radius: 5px;
+  margin: 5px;
+  height: 80%;
+  width: 300px;
+  min-height: 600px;
+}
+
+.player-button-container .btn {
+  margin: 2px;
+}
+
+.btn-xl {
+  font-size: 60px;
+  border-radius: 8px;
+}
+
+.player-life {
+  font-size: 200px;
+  color: #6A9FB5;
+}
+
+.player-name {
+  font-size: 70px;
+  color: #6A9FB5;
+}
+
+.new-player {
+  margin-top: 100%;
+  margin-left: 25%;
+  font-size: 170px;
+  cursor: pointer;
+}
+
+.new-player:hover {
+  opacity: 0.75;
+}
+
+.new-player:active {
+  opacity: 0.9;
 }

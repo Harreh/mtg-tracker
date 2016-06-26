@@ -15,5 +15,6 @@ elixir(function(mix) {
             'vendor/bower_components/jquery-bracket/dist/jquery.bracket.min.js',
             'public/js/jquery-bracket.min.js'
         )
-        .copy('resources/assets/js/app.js', 'public/js/app.js');
+        .copy('resources/assets/js/app.js', 'public/js/app.js')
+        .copy('vendor/bower_components/font-awesome/fonts', 'public/fonts');
 });

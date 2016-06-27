@@ -11,6 +11,7 @@ elixir(function(mix) {
             'vendor/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
             'public/js/bootstrap.js'
         )
+        .copy('vendor/bower_components/knockout/dist/knockout.debug.js', 'public/js/knockout.js')
         .copy(
             'vendor/bower_components/jquery-bracket/dist/jquery.bracket.min.js',
             'public/js/jquery-bracket.min.js'

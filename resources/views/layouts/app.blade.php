@@ -20,6 +20,7 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="js/knockout.js"></script>
     <script src="js/jquery-bracket.min.js"></script>
     <script src="js/app.js"></script>
 </body>

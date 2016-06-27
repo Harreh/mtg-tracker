@@ -1,49 +1,36 @@
+function Player(life, name) {
+    this.life = ko.observable(life);
+    this.name = ko.observable(name);
+}
+
+var game = {
+    'players': ko.observableArray([]),
+    'addPalayer': function (index) {
+        // Create the new player
+        game.players.push(new Player(20, 'Player ' + index));
+    },
+    'changeLife': function (index, lifeChange) {
+        game.players()[index].life(game.players()[index].life() + lifeChange);
+    }
+};
+
+function initPlayerButtons() {
+    $('.content .player-button-container .btn').click(function() {
+        game.changeLife($(this).closest('.player-container').index(), parseInt($(this).val()));
+    });
+}
+
 $(document).ready(function() {
-    function initPlayerButtons() {
-        $('.content .player-button-container .btn').click(function() {
-            game.changeLife($(this).closest('.player-container'), parseInt($(this).val()));
-        });
-    }
-
-    function Player(name, life) {
-        this.life = life;
-        this.name = name;
-    }
-
-    var game = {
-        'players': [],
-        'addPalayer': function (element) {
-            var players = element.indexOf();
-
-            // Create the html
-            $('#blank-player').clone()
-                .removeAttr('id')
-                .insertBefore(element);
-
-            // Create the new player
-            game.players.push(new Player('Player ' + players, 20));
-
-            // TODO: Create the click handlers for the buttons
-        },
-        'changeLife': function (element, lifeChange) {
-            // Find the player's current life
-            var playerLife = element.find('.player-life');
-
-            // Calculate & set their new life
-            var newLife = parseInt(playerLife.html()) + lifeChange;
-            playerLife.html(newLife);
-            game.players[element.index()].life = newLife;
-        }
-    };
+    ko.applyBindings(game);
 
     // Initalise the game with two players
-    game.players.push(new Player('Player 1', 20));
-    game.players.push(new Player('Player 2', 20));
+    game.players.push(new Player(20, 'Player 1'));
+    game.players.push(new Player(20, 'Player 2'));
 
     initPlayerButtons();
 
     $('.new-player').click(function () {
-        game.addPalayer($(this).closest('.player-container'));
+        game.addPalayer($(this).closest('.player-container').index());
 
         $('.content .player-button-container .btn').off();
         initPlayerButtons();

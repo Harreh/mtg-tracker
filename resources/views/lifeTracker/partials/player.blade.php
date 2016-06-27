@@ -1,10 +1,13 @@
 <div class="player-container">
 
     <div class="container">
-        <div class="player-name">{{ $name }}</div>
+        <div>
+            <span class="player-name" data-bind="text: $data.name"></span>
+            <input type="text" class="player-name hidden" data-bind="value: $data.name">
+        </div>
     </div>
     <div class="container">
-        <div class="player-life">20</div>
+        <div class="player-life" data-bind="text: $data.life"></div>
     </div>
     <div class="player-button-container">
         <div class="container">

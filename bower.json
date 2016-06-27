@@ -5,6 +5,7 @@
     "font-awesome": "~4.6.1",
     "jquery": "^2.2.3",
     "jquery-bracket": "^0.7.3",
-    "knockout": "^3.4.0"
+    "knockout": "^3.4.0",
+    "keyrune": "*"
   }
 }

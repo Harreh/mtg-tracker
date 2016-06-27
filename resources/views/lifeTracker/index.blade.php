@@ -6,13 +6,11 @@
             @include ('lifeTracker.partials.player', ['player' => 0])
         </div>
 
-        <div class="new-player-container player-container">
+        <div id="new-player-container" class="player-container">
             <i class="new-player fa fa-plus-square" aria-hidden="true"></i>
         </div>
-    </div>
 
-    <div class="hidden">
-        <div id="blank-player">
+        <div id="blank-player" class="hidden">
             @include ('lifeTracker.partials.player', ['player' => 0])
         </div>
     </div>

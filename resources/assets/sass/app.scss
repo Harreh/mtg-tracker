@@ -1,11 +1,12 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "variables";
-
 @import "./vendor/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 
 @import "./vendor/bower_components/font-awesome/scss/font-awesome.scss";
 
+@import "./vendor/bower_components/keyrune/css/keyrune";
+
 @import "./vendor/bower_components/jquery-bracket/src/jquery.bracket.sass";
+
+@import "variables";
 
 html, body {
   padding: 0;
@@ -20,6 +21,7 @@ body {
 
 .content {
   height: inherit;
+  display: table; margin: 0 auto;
 }
 
 .player-container {
@@ -28,12 +30,11 @@ body {
   border-radius: 5px;
   margin: 5px;
   width: 300px;
-  min-height: 600px;
+  min-height: 631px;
 }
 
 .player-button-container {
-  margin-top: 200px;
-  margin-bottom: 20px
+  margin: 20px
 }
 
 .player-button-container .btn {
@@ -50,7 +51,7 @@ body {
   border-radius: 8px;
 }
 
-.player-life {
+.player-life, .player-poison {
   font-size: 200px;
   color: #6A9FB5;
 }
@@ -78,4 +79,39 @@ body {
 
 .player-menu {
   background-color: inherit;
+}
+
+.btn-add-life {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  border-radius: 0;
+}
+
+.btn-add-life:focus, .btn-add-life.focus {
+  color: #FFF;
+  background-color: #449D44;
+  border-color: #255625;
+}
+
+.btn-add-life:hover {
+  color: #FFF;
+  background-color: #449D44;
+  border-color: #398439;
+}
+
+.btn-lose-life {
+
+}
+
+.player-container .ss {
+  font-size: 50px;
+}
+
+.player-container .ss:hover {
+  opacity: 0.75;
+  cursor: pointer;
+}
+.player-container .ss:active {
+  opacity: 0.9;
 }

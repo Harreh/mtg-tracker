@@ -17,5 +17,6 @@ elixir(function(mix) {
             'public/js/jquery-bracket.min.js'
         )
         .copy('resources/assets/js/app.js', 'public/js/app.js')
-        .copy('vendor/bower_components/font-awesome/fonts', 'public/fonts');
+        .copy('vendor/bower_components/font-awesome/fonts', 'public/fonts')
+        .copy('vendor/bower_components/keyrune/fonts', 'public/fonts');
 });

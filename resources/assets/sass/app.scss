@@ -27,13 +27,22 @@ body {
   background-color: #D0D0D0;
   border-radius: 5px;
   margin: 5px;
-  height: 80%;
   width: 300px;
   min-height: 600px;
 }
 
+.player-button-container {
+  margin-top: 200px;
+  margin-bottom: 20px
+}
+
 .player-button-container .btn {
   margin: 2px;
+  width: 100px;
+
+  .fa {
+    font-size: 40px;
+  }
 }
 
 .btn-xl {
@@ -64,4 +73,8 @@ body {
 
 .new-player:active {
   opacity: 0.9;
+}
+
+.player-menu {
+  background-color: inherit;
 }

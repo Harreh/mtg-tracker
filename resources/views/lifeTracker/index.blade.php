@@ -11,7 +11,7 @@
     </div>
 
     <div class="hidden">
-        <div id="blank-player" class="player-container">
+        <div id="blank-player">
             @include ('lifeTracker.partials.player', ['name' => 'Player 3'])
         </div>
     </div>

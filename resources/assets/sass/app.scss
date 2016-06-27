@@ -104,14 +104,20 @@ body {
 
 }
 
-.player-container .ss {
-  font-size: 50px;
+.player-button-container {
+  .ss, .fa {
+    font-size: 50px;
+  }
 }
 
-.player-container .ss:hover {
-  opacity: 0.75;
-  cursor: pointer;
+.player-button-container {
+  .ss:hover, .fa:hover {
+    opacity: 0.75;
+    cursor: pointer;
+  }
 }
-.player-container .ss:active {
-  opacity: 0.9;
+.player-button-container {
+  .ss:active, .fa:active {
+    opacity: 0.9;
+  }
 }

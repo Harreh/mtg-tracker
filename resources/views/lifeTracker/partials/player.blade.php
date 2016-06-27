@@ -13,6 +13,7 @@
     <div class="player-button-container">
         <div class="container">
             <i class="poison-button ss ss-nph"></i>
+            <i class="hidden life-button fa fa-heart"></i>
         </div>
         <div class="container">
             <button value="1" class="btn btn-add-life btn-xl"><i class="fa fa-plus" aria-hidden="true"></i>1</button>

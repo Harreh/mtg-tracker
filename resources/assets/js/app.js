@@ -18,20 +18,18 @@ var Game = {
 };
 
 function initPlayerButtons() {
-    $('.poison-button').click(function () {
+    $('.poison-button, .life-button').click(function () {
         var element = $(this).closest('.player-container');
 
-        if (element.attr('data-life-mode') == 'life') {
-            element.attr('data-life-mode', 'poison');
+        element.find('.player-life').toggleClass('hidden');
+        element.find('.player-poison').toggleClass('hidden');
 
-            element.find('.player-life').addClass('hidden');
-            element.find('.player-poison').removeClass('hidden');
-        } else {
-            element.attr('data-life-mode', 'life');
+        element.find('.poison-button').toggleClass('hidden');
+        element.find('.life-button').toggleClass('hidden');
 
-            element.find('.player-life').removeClass('hidden');
-            element.find('.player-poison').addClass('hidden');
-        }
+        element.attr('data-life-mode', function (index, attr) {
+            return attr == 'life' ? 'poison' : 'life';
+        });
     });
 
     $('.content .player-button-container .btn').click(function() {
@@ -62,6 +60,7 @@ $(document).ready(function() {
         var players = parseInt(Game.players().length) + 1;
         Game.addPalayer('Player ' + players);
 
+        $('.poison-button, .life-button').off();
         $('.content .player-button-container .btn').off();
         initPlayerButtons();
     });

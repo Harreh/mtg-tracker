@@ -3,34 +3,34 @@ function Player(life, name) {
     this.name = ko.observable(name);
 }
 
-var game = {
-    'players': ko.observableArray([]),
-    'addPalayer': function (index) {
-        // Create the new player
-        game.players.push(new Player(20, 'Player ' + index));
+var Game = {
+    'players': ko.observableArray(),
+    'addPalayer': function (name) {
+        Game.players.push(new Player(20, name));
     },
     'changeLife': function (index, lifeChange) {
-        game.players()[index].life(game.players()[index].life() + lifeChange);
+        Game.players()[index].life(Game.players()[index].life() + lifeChange);
     }
 };
 
 function initPlayerButtons() {
     $('.content .player-button-container .btn').click(function() {
-        game.changeLife($(this).closest('.player-container').index(), parseInt($(this).val()));
+        Game.changeLife($(this).closest('.player-container').index(), parseInt($(this).val()));
     });
 }
 
 $(document).ready(function() {
-    ko.applyBindings(game);
+    ko.applyBindings(Game);
 
-    // Initalise the game with two players
-    game.players.push(new Player(20, 'Player 1'));
-    game.players.push(new Player(20, 'Player 2'));
+    // Initalise the Game with two players
+    Game.players.push(new Player(20, 'Player 1'));
+    Game.players.push(new Player(20, 'Player 2'));
 
     initPlayerButtons();
 
     $('.new-player').click(function () {
-        game.addPalayer($(this).closest('.player-container').index());
+        var players = parseInt(Game.players().length) + 1;
+        Game.addPalayer('Player ' + players);
 
         $('.content .player-button-container .btn').off();
         initPlayerButtons();

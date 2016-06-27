@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content">
-        <div data-bind="foreach: players">
+        <div id="player-containers" data-bind="foreach: players">
             @include ('lifeTracker.partials.player', ['player' => 0])
         </div>
 

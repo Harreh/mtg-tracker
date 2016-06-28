@@ -12,11 +12,12 @@ html, body {
   padding: 0;
   margin: 0;
   height: 100%;
+  line-height: normal;
 }
 
 body {
   font-family: 'Lato';
-  background-color: #F5F5F5;
+  background-color: #202020;
 }
 
 .content {
@@ -34,7 +35,7 @@ body {
 }
 
 .player-button-container {
-  margin: 20px
+  margin: 0 20px
 }
 
 .player-button-container .btn {
@@ -53,13 +54,21 @@ body {
 
 .player-life, .player-poison {
   font-size: 200px;
-  color: #6A9FB5;
+  color: #9f9f9f;
+  padding: 10px;
+}
+
+.player-poison {
+  font-size: 100px;
+}
+
+.text-active {
+  color: #505050;
 }
 
 .player-name {
   font-size: 70px;
-  color: #6A9FB5;
-  width: 265px;
+  color: #505050;
 }
 
 .new-player {
@@ -67,6 +76,7 @@ body {
   margin-left: 25%;
   font-size: 170px;
   cursor: pointer;
+  color: #303030;
 }
 
 .new-player:hover {
@@ -100,10 +110,6 @@ body {
   border-color: #398439;
 }
 
-.btn-lose-life {
-
-}
-
 .player-button-container {
   .ss, .fa {
     font-size: 50px;
@@ -120,4 +126,48 @@ body {
   .ss:active, .fa:active {
     opacity: 0.9;
   }
+}
+
+.player-nav {
+  width: 100%;
+  border-bottom: 0;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.player-tab {
+  width: 50%;
+  margin: 0;
+  float: left;
+  border-radius: 5px 5px 0 0;
+}
+
+.player-nav li.tab-active {
+  background-color: #D0D0D0;
+  cursor: default;
+}
+
+.player-nav > li {
+  height: 35px;
+  line-height: 30px;
+  background-color: #E0E0E0;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  font-size: 2rem;
+  color: #505050;
+}
+.player-nav > li:first-child {
+  border-radius: 5px 0 0;
+}
+
+.player-nav > li:last-child {
+  border-radius: 0 5px 0 0;
+}
+
+.player-content {
+  margin-top: 35px;
+  position: relative;
 }

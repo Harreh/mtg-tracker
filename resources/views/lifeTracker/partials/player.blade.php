@@ -1,27 +1,26 @@
 <div class="player-container" data-life-mode="life">
-
-    <div class="container">
+    <ul class="player-nav">
+        <li class="life-button player-tab tab-active"><i class="fa fa-heart"></i><span>Life</span></li>
+        <li class="poison-button player-tab"><i class="ss ss-nph"></i><span>Poison</span></li>
+    </ul>
+    <div class="player-content">
         <div>
             <span class="player-name" data-bind="text: $data.name"></span>
             <input type="text" class="player-name hidden" data-bind="value: $data.name">
         </div>
-    </div>
-    <div class="container">
-        <div class="player-life" data-bind="text: $data.life"></div>
-        <div class="player-poison hidden" data-bind="text: $data.poison"></div>
-    </div>
-    <div class="player-button-container">
-        <div class="container">
-            <i class="poison-button ss ss-nph"></i>
-            <i class="hidden life-button fa fa-heart"></i>
-        </div>
-        <div class="container">
-            <button value="1" class="btn btn-add-life btn-xl"><i class="fa fa-plus" aria-hidden="true"></i>1</button>
-            <button value="5" class="btn btn-add-life btn-xl"><i class="fa fa-plus" aria-hidden="true"></i>5</button>
-        </div>
-        <div class="container">
-            <button value="-1" class="btn btn-lose-life btn-xl"><i class="fa fa-minus" aria-hidden="true"></i>1</button>
-            <button value="-5" class="btn btn-lose-life btn-xl"><i class="fa fa-minus" aria-hidden="true"></i>5</button>
+        <div class="player-life text-active" data-bind="text: $data.life"></div>
+
+        <div class="player-poison" data-bind="text: $data.poison"></div>
+
+        <div class="player-button-container">
+            <div>
+                <button value="1" class="btn btn-add-life btn-xl"><i class="fa fa-plus" aria-hidden="true"></i>1</button>
+                <button value="5" class="btn btn-add-life btn-xl"><i class="fa fa-plus" aria-hidden="true"></i>5</button>
+            </div>
+            <div>
+                <button value="-1" class="btn btn-lose-life btn-xl"><i class="fa fa-minus" aria-hidden="true"></i>1</button>
+                <button value="-5" class="btn btn-lose-life btn-xl"><i class="fa fa-minus" aria-hidden="true"></i>5</button>
+            </div>
         </div>
     </div>
 </div>

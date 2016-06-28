@@ -21,15 +21,22 @@ function initPlayerButtons() {
     $('.poison-button, .life-button').click(function () {
         var element = $(this).closest('.player-container');
 
-        element.find('.player-life').toggleClass('hidden');
-        element.find('.player-poison').toggleClass('hidden');
+        if (!$(this).hasClass('tab-active')) {
+            element.find('.player-tab').removeClass('tab-active');
+            $(this).addClass('tab-active');
+        }
 
-        element.find('.poison-button').toggleClass('hidden');
-        element.find('.life-button').toggleClass('hidden');
+        if ($(this).hasClass('life-button')) {
+            element.attr('data-life-mode', 'life');
+            element.find('.player-life').addClass('text-active');
+            element.find('.player-poison').removeClass('text-active');
+        }
 
-        element.attr('data-life-mode', function (index, attr) {
-            return attr == 'life' ? 'poison' : 'life';
-        });
+        if ($(this).hasClass('poison-button')) {
+            element.attr('data-life-mode', 'poison');
+            element.find('.player-poison').addClass('text-active');
+            element.find('.player-life').removeClass('text-active');
+        }
     });
 
     $('.content .player-button-container .btn').click(function() {

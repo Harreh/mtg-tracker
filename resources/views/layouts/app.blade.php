@@ -17,14 +17,12 @@
 </head>
 <body id="app-layout">
 
-    @include('layouts.naviagtion')
-
     @yield('content')
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/knockout.js"></script>
-    <script src="js/jquery-bracket.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

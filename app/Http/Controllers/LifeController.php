@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class LifeTrackerController extends Controller
+class LifeController extends Controller
 {
 
     public function index() {
-        return view('lifeTracker.index');
+        return view('life.index');
     }
 
 }

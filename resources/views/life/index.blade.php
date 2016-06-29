@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
+@include('life.partials.menu')
+
 @section('content')
     <div class="content">
         <div id="player-containers" data-bind="foreach: players">
-            @include ('lifeTracker.partials.player', ['player' => 0])
+            @include ('life.partials.player', ['player' => 0])
         </div>
 
         <div id="new-player-container" class="player-container">
@@ -11,7 +13,7 @@
         </div>
 
         <div id="blank-player" class="hidden">
-            @include ('lifeTracker.partials.player', ['player' => 0])
+            @include ('life.partials.player', ['player' => 0])
         </div>
     </div>
 @endsection

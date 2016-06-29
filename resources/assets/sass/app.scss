@@ -4,7 +4,7 @@
 
 @import "./vendor/bower_components/keyrune/css/keyrune";
 
-@import "./vendor/bower_components/jquery-bracket/src/jquery.bracket.sass";
+@import "./vendor/bower_components/bootstrap-select/sass/bootstrap-select";
 
 @import "variables";
 
@@ -31,7 +31,7 @@ body {
   border-radius: 5px;
   margin: 5px;
   width: 300px;
-  min-height: 631px;
+  min-height: 725px;
 }
 
 .player-button-container {
@@ -170,4 +170,20 @@ body {
 .player-content {
   margin-top: 35px;
   position: relative;
+}
+
+.life-menu {
+  color: white;
+  text-align: center;
+  font-size: 35px;
+  margin: 10px auto;
+}
+
+.life-menu > button {
+  border: none;
+  background: none;
+}
+
+select.selectpicker {
+  display: none;
 }

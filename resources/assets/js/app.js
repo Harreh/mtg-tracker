@@ -5,20 +5,32 @@ function Player(life, name) {
 }
 
 var Game = {
+    '_startLife': 20,
+    'startLife': function() {
+        return parseInt(this._startLife);
+    },
+    'startPlayers': 2,
     'players': ko.observableArray(),
-    'addPalayer': function (name) {
-        Game.players.push(new Player(20, name));
+    'addPlayer': function (life, name) {
+        this.players.push(new Player(life, name));
     },
-    'changeLife': function (index, lifeChange) {
-        Game.players()[index].life(Game.players()[index].life() + lifeChange);
+    'addLife': function(index, lifeChange) {
+        this.players()[index].life(this.players()[index].life() + lifeChange);
     },
-    'changePoison': function(index, poisonChange) {
-        Game.players()[index].poison(Game.players()[index].poison() + poisonChange);
+    'addPoison': function(index, poisonChange) {
+        this.players()[index].poison(this.players()[index].poison() + poisonChange);
+    },
+    'reset': function() {
+        this.players([]);
+        console.log(this.startLife());
+        for (var i = 0; i < this.startPlayers; i++) {
+            this.addPlayer(this.startLife(), 'Player ' + (i + 1));
+        }
     }
 };
 
 function initPlayerButtons() {
-    $('.poison-button, .life-button').click(function () {
+    $('.poison-button, .life-button').click(function() {
         var element = $(this).closest('.player-container');
 
         if (!$(this).hasClass('tab-active')) {
@@ -45,27 +57,35 @@ function initPlayerButtons() {
         var value = parseInt($(this).val());
 
         if (playerContainer.attr('data-life-mode') == 'life') {
-            Game.changeLife(index, value);
+            Game.addLife(index, value);
         } else {
-            Game.changePoison(index, value);
+            Game.addPoison(index, value);
         }
     });
 }
 
+function initMenuButtons() {
+    $('#life-reset').click(function() {
+        Game.reset();
+        initPlayerButtons();
+    });
+}
+
 $(document).ready(function() {
+    $('.selectpicker').selectpicker();
+
+    Game.reset();
+
     ko.applyBindings(Game);
 
     $('#new-player-container').appendTo($('#player-containers'));
 
-    // Initalise the Game with two players
-    Game.addPalayer('Player 1');
-    Game.addPalayer('Player 2');
-
+    initMenuButtons();
     initPlayerButtons();
 
     $('.new-player').click(function () {
         var players = parseInt(Game.players().length) + 1;
-        Game.addPalayer('Player ' + players);
+        Game.addPlayer(20, 'Player ' + players);
 
         $('.poison-button, .life-button').off();
         $('.content .player-button-container .btn').off();

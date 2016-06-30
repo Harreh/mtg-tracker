@@ -78,10 +78,11 @@ body {
   font-size: 170px;
   cursor: pointer;
   color: #303030;
+  transition: transform cubic-bezier(0.165, 0.840, 0.440, 1.000) 0.1s;
 }
 
 .new-player:hover {
-  opacity: 0.75;
+  transform: scale(1.1);
 }
 
 .new-player:active {
@@ -95,18 +96,6 @@ body {
 .player-button-container {
   .ss, .fa {
     font-size: 50px;
-  }
-}
-
-.player-button-container {
-  .ss:hover, .fa:hover {
-    opacity: 0.75;
-    cursor: pointer;
-  }
-}
-.player-button-container {
-  .ss:active, .fa:active {
-    opacity: 0.9;
   }
 }
 

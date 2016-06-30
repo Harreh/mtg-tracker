@@ -70,7 +70,7 @@ function initMenuButtons() {
             'closeButton': false,
             'size': 'small',
             'title': 'Reset game?',
-            'message': 'Do you want to start a new game with ' + Game.players().length + ' players on ' + Game.startLife() + ' life?',
+            'message': 'Do you want to start a new game with ' + Game.startPlayers + ' players on ' + Game.startLife() + ' life?',
             'callback': function(result) {
                 if (result) {
                     Game.reset();

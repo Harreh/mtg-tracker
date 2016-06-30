@@ -32,6 +32,7 @@ body {
   margin: 5px;
   width: 300px;
   min-height: 725px;
+  border-bottom: 2px solid #505050;
 }
 
 .player-button-container {
@@ -91,25 +92,6 @@ body {
   background-color: inherit;
 }
 
-.btn-add-life {
-  color: #fff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
-  border-radius: 0;
-}
-
-.btn-add-life:focus, .btn-add-life.focus {
-  color: #FFF;
-  background-color: #449D44;
-  border-color: #255625;
-}
-
-.btn-add-life:hover {
-  color: #FFF;
-  background-color: #449D44;
-  border-color: #398439;
-}
-
 .player-button-container {
   .ss, .fa {
     font-size: 50px;
@@ -141,11 +123,20 @@ body {
   margin: 0;
   float: left;
   border-radius: 5px 5px 0 0;
+  border-top: 4px solid #505050;
 }
 
 .player-nav li.tab-active {
   background-color: #D0D0D0;
   cursor: default;
+}
+
+.tab-active.life-button {
+  border-top: 4px solid #AC4142;
+}
+
+.tab-active.poison-button {
+  border-top: 4px solid #AA759F;
 }
 
 .player-nav > li {

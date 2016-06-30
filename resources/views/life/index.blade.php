@@ -9,7 +9,7 @@
         </div>
 
         <div id="new-player-container" class="player-container">
-            <i class="new-player fa fa-plus-square" aria-hidden="true"></i>
+            <i class="new-player fa fa-plus" aria-hidden="true"></i>
         </div>
 
         <div id="blank-player" class="hidden">

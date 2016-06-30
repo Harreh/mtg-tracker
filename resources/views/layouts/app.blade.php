@@ -23,6 +23,7 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/knockout.js"></script>
     <script src="js/bootstrap-select.js"></script>
+    <script src="js/bootbox.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

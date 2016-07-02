@@ -5,6 +5,7 @@ function Player(life, name) {
 }
 
 var Game = {
+    'globalMode': false,
     '_startLife': 20,
     'startLife': function() {
         return parseInt(this._startLife);
@@ -15,14 +16,30 @@ var Game = {
         this.players.push(new Player(life, name));
     },
     'addLife': function(index, lifeChange) {
-        this.players()[index].life(this.players()[index].life() + lifeChange);
+        var self = this;
+
+        if (this.globalMode) {
+            this.players().forEach(function(element, index) {
+               self.players()[index].life(self.players()[index].life() + lifeChange);
+            });
+        } else {
+            this.players()[index].life(this.players()[index].life() + lifeChange);
+        }
     },
     'addPoison': function(index, poisonChange) {
-        this.players()[index].poison(this.players()[index].poison() + poisonChange);
+        var self = this;
+
+        if (this.globalMode) {
+            this.players().forEach(function(element, index) {
+                self.players()[index].poison(self.players()[index].poison() + poisonChange);
+            });
+
+        } else {
+            this.players()[index].poison(this.players()[index].poison() + poisonChange);
+        }
     },
     'reset': function() {
         this.players([]);
-        console.log(this.startLife());
         for (var i = 0; i < this.startPlayers; i++) {
             this.addPlayer(this.startLife(), 'Player ' + (i + 1));
         }
@@ -53,13 +70,23 @@ function initPlayerButtons() {
 
     $('.content .player-button-container .btn').click(function() {
         var playerContainer = $(this).closest('.player-container');
-        var index = playerContainer.index();
         var value = parseInt($(this).val());
+        var lifeMode = playerContainer.attr('data-life-mode') == 'life';
 
-        if (playerContainer.attr('data-life-mode') == 'life') {
-            Game.addLife(index, value);
+        if (Game.globalMode) {
+            Game.players().forEach(function(element, key) {
+                if (lifeMode) {
+                    Game.addLife(key, value);
+                } else {
+                    Game.addPoison(key, value);
+                }
+            });
         } else {
-            Game.addPoison(index, value);
+            if (lifeMode) {
+                Game.addLife(playerContainer.index(), value);
+            } else {
+                Game.addPoison(playerContainer.index(), value);
+            }
         }
     });
 }
@@ -82,6 +109,18 @@ function initMenuButtons() {
 }
 
 $(document).ready(function() {
+    $(document).keydown(function (e) {
+        if (e.keyCode == 17) {
+            Game.globalMode = true;
+        }
+    });
+
+    $(document).keyup(function (e) {
+        if (e.keyCode == 17) {
+            Game.globalMode = false;
+        }
+    });
+
     $('.selectpicker').selectpicker();
 
     Game.reset();
@@ -98,7 +137,8 @@ $(document).ready(function() {
         Game.addPlayer(20, 'Player ' + players);
 
         $('.poison-button, .life-button').off();
-        $('.content .player-button-container .btn').off();
+
+        $('.player-button-container .btn').off();
         initPlayerButtons();
     });
 });

@@ -17,6 +17,8 @@
 </head>
 <body id="app-layout">
 
+    @yield('menu')
+
     @yield('content')
 
     <script src="js/jquery.js"></script>

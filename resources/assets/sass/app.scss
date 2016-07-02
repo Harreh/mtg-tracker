@@ -16,8 +16,7 @@ html, body {
 }
 
 body {
-  font-family: 'Lato';
-  background-color: #7587A6;
+  background-color: #4D77A6;
 }
 
 .content {
@@ -186,7 +185,7 @@ select.selectpicker {
 }
 
 .player-button-container {
-  opacity: 0.7;
+  opacity: 0.5;
   transition: opacity 0.2s ease-in;
   text-align: center;
   margin: 15px;
@@ -195,4 +194,9 @@ select.selectpicker {
 .player-container:hover .player-button-container {
   transition: opacity 0.2s ease-in;
   opacity: 1;
+}
+
+.btn {
+  border: none;
+  border-radius: 0;
 }

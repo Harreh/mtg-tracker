@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@include('life.partials.menu')
+@section('menu')
+    @include('life.menu')
+@endsection
 
 @section('content')
     <div class="content">

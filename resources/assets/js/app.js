@@ -12,7 +12,7 @@ var Game = {
     },
     'startPlayers': 2,
     'players': ko.observableArray(),
-    'addPlayer': function (life, name) {
+    'addPlayer': function(life, name) {
         this.players.push(new Player(life, name));
     },
     'addLife': function(index, lifeChange) {

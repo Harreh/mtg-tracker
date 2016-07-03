@@ -10,7 +10,7 @@ var Game = {
     'startLife': function() {
         return parseInt(this._startLife);
     },
-    'startPlayers': 2,
+    'startPlayers': ko.observable(2),
     'players': ko.observableArray(),
     'addPlayer': function(life, name) {
         this.players.push(new Player(life, name));
@@ -40,7 +40,7 @@ var Game = {
     },
     'reset': function() {
         this.players([]);
-        for (var i = 0; i < this.startPlayers; i++) {
+        for (var i = 0; i < this.startPlayers(); i++) {
             this.addPlayer(this.startLife(), 'Player ' + (i + 1));
         }
     }
@@ -73,31 +73,23 @@ function initPlayerButtons() {
         var value = parseInt($(this).val());
         var lifeMode = playerContainer.attr('data-life-mode') == 'life';
 
-        if (Game.globalMode) {
-            Game.players().forEach(function(element, key) {
-                if (lifeMode) {
-                    Game.addLife(key, value);
-                } else {
-                    Game.addPoison(key, value);
-                }
-            });
+        if (lifeMode) {
+            Game.addLife(playerContainer.index(), value);
         } else {
-            if (lifeMode) {
-                Game.addLife(playerContainer.index(), value);
-            } else {
-                Game.addPoison(playerContainer.index(), value);
-            }
+            Game.addPoison(playerContainer.index(), value);
         }
     });
 }
 
 function initMenuButtons() {
     $('#life-reset').click(function() {
+        $('[data-toggle="tooltip"]').tooltip('hide');
+
         bootbox.confirm({
             'closeButton': false,
             'size': 'small',
             'title': 'Reset game?',
-            'message': 'Do you want to start a new game with ' + Game.startPlayers + ' players on ' + Game.startLife() + ' life?',
+            'message': 'Do you want to start a new game with ' + Game.startPlayers() + ' players on ' + Game.startLife() + ' life?',
             'callback': function(result) {
                 if (result) {
                     Game.reset();
@@ -109,19 +101,45 @@ function initMenuButtons() {
 }
 
 $(document).ready(function() {
-    $(document).keydown(function (e) {
+    $(document).keydown(function(e) {
         if (e.keyCode == 17) {
             Game.globalMode = true;
+            $('.player-button-container').addClass('hover');
         }
     });
 
-    $(document).keyup(function (e) {
+    $(document).keyup(function(e) {
         if (e.keyCode == 17) {
             Game.globalMode = false;
+            $('.player-button-container').removeClass('hover');
         }
     });
 
-    $('.selectpicker').selectpicker();
+    $('.selectpicker').selectpicker({
+        width: '100px',
+        iconBase: 'fa'
+    }).on('show.bs.select', function() {
+        $('[data-toggle="tooltip"]').tooltip('hide').tooltip('disable');
+    }).on('hide.bs.select', function() {
+        $('[data-toggle="tooltip"]').tooltip('enable');
+    });
+
+    $('.bootstrap-select').attr('data-toggle', 'tooltip');
+
+    $('.bootstrap-select [data-id="life-points"]').parent().attr('title', 'Life Points');
+    $('.bootstrap-select [data-id="life-players"]').parent().attr('title', 'Start Players');
+
+    var tooltips = $('[data-toggle="tooltip"]');
+
+    tooltips.tooltip({
+        placement: 'bottom',
+        container: 'body',
+        delay: 650
+    });
+
+    tooltips.mouseover(function() {
+        tooltips.not(this).tooltip('hide');
+    });
 
     Game.reset();
 
@@ -132,13 +150,19 @@ $(document).ready(function() {
     initMenuButtons();
     initPlayerButtons();
 
-    $('.new-player').click(function () {
+    $('.new-player').click(function() {
         var players = parseInt(Game.players().length) + 1;
         Game.addPlayer(20, 'Player ' + players);
+        Game.startPlayers(players);
+
+        $('.selectpicker').selectpicker('refresh');
+        $('.dropdown-toggle').removeAttr('title');
 
         $('.poison-button, .life-button').off();
 
         $('.player-button-container .btn').off();
         initPlayerButtons();
     });
+
+    $('.dropdown-toggle').removeAttr('title');
 });

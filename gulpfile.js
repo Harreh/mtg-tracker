@@ -7,6 +7,7 @@ elixir(function(mix) {
             'vendor/bower_components/jquery/dist/jquery.js',
             'public/js/jquery.js'
         )
+        .copy('node_modules/tether/dist/js/tether.js', 'public/js/tether.js')
         .copy(
             'vendor/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
             'public/js/bootstrap.js'

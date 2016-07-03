@@ -1,3 +1,4 @@
+@import '../../../node_modules/tether/src/css/tether';
 @import '../../../vendor/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap';
 @import '../../../vendor/bower_components/font-awesome/scss/font-awesome';
 @import '../../../vendor/bower_components/keyrune/css/keyrune';
@@ -15,7 +16,7 @@ body {
 }
 
 body {
-  background-color: #4D77A6;
+  background-color: #286090;
 }
 
 .content {
@@ -170,6 +171,16 @@ body {
   display: none;
 }
 
+.bootstrap-select .btn {
+  font-size: 25px;
+  height: 50px;
+}
+
+.dropdown-menu {
+  font-size: 25px;
+  text-align: center;
+}
+
 #new-player-container {
   background: none;
   border: 0;
@@ -189,9 +200,22 @@ body {
   transition: opacity .2s ease-in;
 }
 
+.hover {
+  opacity: 1;
+  transition: opacity .2s ease-in;
+}
+
 .btn,
 .dropdown-menu,
 .modal-content {
   border: 0;
   border-radius: 0;
+}
+
+#player-containers {
+  margin-left: 150px;
+}
+
+.tooltip-inner {
+  font-size: 20px;
 }

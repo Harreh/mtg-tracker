@@ -1,4 +1,4 @@
-<div class="life-menu container">
+<div class="life-menu">
     <button id="life-reset" data-toggle="tooltip" title="Reset Game" type="button"><i class="fa fa-refresh" aria-hidden="true"></i></button>
     <select id="life-points" data-bind="value: _startLife" data-icon="glyphicon glyphicon-heart" class="selectpicker">
         @for ($i = 2; $i < 5; $i++)

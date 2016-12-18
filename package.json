@@ -1,7 +1,9 @@
 {
   "private": true,
   "dependencies": {
-    "bootbox": "^4.4.0",
+    "bootbox": "^4.4.0"
+  },
+  "devDependencies": {
     "gulp": "^3.9.1",
     "laravel-elixir": "^5.0.0",
     "laravel-elixir-bowerbundle": "^2.2.0"

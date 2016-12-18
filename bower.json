@@ -1,12 +1,12 @@
 {
   "name": "mtg-tracker",
   "dependencies": {
-    "bootstrap-sass-official": "~3.3.6",
-    "font-awesome": "~4.6.1",
-    "jquery": "^2.2.3",
-    "knockout": "^3.4.0",
+    "bootstrap-sass-official": "~3.3.7",
+    "font-awesome": "~4.7.0",
+    "jquery": "^3.1.1",
+    "knockout": "^3.4.1",
     "keyrune": "*",
-    "bootstrap-select": "^1.10.0",
-    "js-cookie": "^2.1.2"
+    "bootstrap-select": "^1.12.1",
+    "js-cookie": "^2.1.3"
   }
 }

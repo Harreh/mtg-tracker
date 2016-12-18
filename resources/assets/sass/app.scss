@@ -76,8 +76,15 @@ body {
 }
 
 .player-name {
+  background-color: #D0D0D0;
+  border: 0;
   color: #505050;
   font-size: 70px;
+  width: 100%;
+}
+
+.player-name:hover {
+  background-color: #C0C0C0;
 }
 
 .new-player {

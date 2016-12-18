@@ -5,8 +5,7 @@
     </ul>
     <div class="player-content">
         <div class="player-name-container">
-            <span class="player-name" data-bind="text: $data.name"></span>
-            <input type="text" class="player-name-input hidden" data-bind="value: $data.name">
+            <input class="player-name" onkeyup="storeCookie()" data-bind="textInput: $data.name, storeCookie: true" tabindex="1" type="text" spellcheck="false" autocomplete="false">
         </div>
         <div class="player-life text-active" data-bind="text: $data.life"></div>
 

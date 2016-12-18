@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="content">
-        <div id="player-containers" data-bind="foreach: players">
-            @include ('life.partials.player', ['player' => 0])
+        <div id="player-containers" data-bind="foreach: players, storeCookieForeach: true">
+            @include ('life.partials.player')
         </div>
 
         <div id="new-player-container" class="player-container">
@@ -15,7 +15,7 @@
         </div>
 
         <div id="blank-player" class="hidden">
-            @include ('life.partials.player', ['player' => 0])
+            @include ('life.partials.player')
         </div>
     </div>
 @endsection
